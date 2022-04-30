@@ -150,7 +150,6 @@ PRODUCT_PACKAGES += \
     init.qti.display_boot.sh \
     gralloc.default \
     libdisplaydebug \
-    android.hardware.renderscript@1.0-impl \
     libtinyxml \
     libtinyxml2 \
     libqdMetaData \
