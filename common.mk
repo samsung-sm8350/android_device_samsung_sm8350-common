@@ -425,10 +425,6 @@ PRODUCT_PACKAGES += \
     android.hidl.memory.block@1.0.vendor \
     vendor.qti.hardware.systemhelper@1.0.vendor
 
-# VNDK
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/apex/com.android.vndk.current.on_vendor.apex:$(TARGET_COPY_OUT_VENDOR)/apex/com.android.vndk.current.on_vendor.apex
-
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
