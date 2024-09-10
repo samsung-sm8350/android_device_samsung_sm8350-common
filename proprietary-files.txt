@@ -348,8 +348,8 @@ vendor/lib/liboemcrypto.so
 vendor/lib64/liboemcrypto.so
 vendor/lib/libtrustedapploader.so
 vendor/lib64/libtrustedapploader.so
-vendor/lib/libwvhidl.so
-vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/libwvhidl.so|00f3ce1cce7b39d6d02fe1b77525860940e4ef79
+vendor/lib/mediadrm/libwvdrmengine.so|c41be0857647e8c049b86f2b6124e572a39c68ba
 
 # Feature
 vendor/lib/libsemnativecarrierfeature.so
