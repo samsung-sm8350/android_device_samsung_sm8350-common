@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-COMMON_PATH := device/samsung/sm7325-common
+COMMON_PATH := device/samsung/sm8350-common
 
 DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 
@@ -51,16 +51,15 @@ PRODUCT_PACKAGES += \
     vendor.samsung.rilchip.qcom.rc \
     init.vendor.rilcommon.rc \
     init.vendor.sensors.rc \
-    wifi_firmware.rc \
     ueventd.qcom.rc \
-    wifi_qcom_wcn6750.rc \
+    wifi_brcm.rc \
     wifi_sec.rc
 
 # Vendor scripts
 PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.kernel.post_boot.sh \
-    init.kernel.post_boot-yupik.sh \
+    init.kernel.post_boot-lahaina.sh \
     init.qcom.class_core.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
@@ -78,7 +77,7 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
-    android.hardware.audio@7.0-impl.samsung-sm7325 \
+    android.hardware.audio@7.0-impl.samsung-sm8350 \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.soundtrigger@2.2-impl \
     audio.r_submix.default \
@@ -112,9 +111,12 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider-service.samsung \
+    android.hardware.camera.provider@2.5-service_64.samsung \
     libgrallocusage.vendor \
-    vendor.qti.hardware.camera.device@1.0.vendor
+    vendor.qti.hardware.camera.device@1.0.vendor \
+    vendor.qti.hardware.camera.postproc@1.0.vendor \
+    libgui_vendor \
+    libcamera2ndk_vendor
 
 # CAS
 PRODUCT_PACKAGES += \
@@ -146,11 +148,18 @@ PRODUCT_PACKAGES += \
     init.qti.display_boot.sh \
     memtrack.default \
     gralloc.default \
+    libdisplaydebug \
     android.hardware.renderscript@1.0-impl \
     libtinyxml \
     libtinyxml2 \
     libqdMetaData \
     libdisplayconfig.qti \
+    vendor.display.config@1.0 \
+    vendor.display.config@1.0.vendor \
+    vendor.display.config@1.5 \
+    vendor.display.config@1.11.vendor \
+    vendor.display.config@2.0 \
+    vendor.qti.hardware.display.mapper@1.0.vendor \
     vendor.qti.hardware.display.mapper@1.1.vendor \
     vendor.qti.hardware.display.mapper@2.0.vendor \
     vendor.qti.hardware.display.mapper@3.0.vendor \
@@ -165,6 +174,7 @@ PRODUCT_PACKAGES += \
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
+    libcrypto_shim.vendor \
     libdrmclearkeyplugin \
     android.hardware.drm@1.3.vendor
 
@@ -224,7 +234,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.samsung-qcom.sm7325
+    vendor.lineage.livedisplay@2.0-service.samsung-qcom.sm8350
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -262,14 +272,6 @@ PRODUCT_PACKAGES += \
     libnfc_nci_jni \
     NfcNci \
     Tag
-
-ifeq ($(TARGET_HAVE_SEC_NFC),true)
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2-service.samsung
-
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/nfc/libnfc-sec-vendor.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-sec-vendor.conf
-endif
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
@@ -367,6 +369,7 @@ PRODUCT_PACKAGES += \
     libxml2 \
     librilutils \
     librmnetctl \
+    libnetutils.vendor \
     secril_config_svc \
     sehradiomanager \
     libjsoncpp.vendor
@@ -385,7 +388,7 @@ PRODUCT_PACKAGES += \
 
 # Touch features
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.samsung_sm7325
+    vendor.lineage.touch@1.0-service.samsung_sm8350
 
 # Vendor service manager
 PRODUCT_PACKAGES += \
@@ -393,7 +396,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-service-qti \
+    android.hardware.usb-service.qti \
     init.qcom.usb.rc \
     init.qcom.usb.sh
 
@@ -418,12 +421,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v30/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v30.so
 
+# Weaver
+PRODUCT_PACKAGES += \
+    android.hardware.weaver@1.0.vendor
+
+# Trusted UI
+PRODUCT_PACKAGES += \
+    android.hidl.memory.block@1.0.vendor \
+    vendor.qti.hardware.systemhelper@1.0.vendor
+
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
     libwifi-hal \
-    libwifi-hal-qcom \
     libwpa_client \
     wpa_cli \
     wpa_supplicant \
@@ -432,11 +443,9 @@ PRODUCT_PACKAGES += \
     TetheringConfigOverlay
 
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/wifi/icm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/icm.conf \
     $(COMMON_PATH)/configs/wifi/indoorchannel.info:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/indoorchannel.info \
     $(COMMON_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    $(COMMON_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-    $(COMMON_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+    $(COMMON_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 
 # WiFi Display
 PRODUCT_PACKAGES += \
@@ -447,7 +456,8 @@ PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/samsung
+    hardware/samsung \
+    hardware/qcom-caf/sm8350
 
 # Prop files
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
@@ -455,4 +465,4 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
 
 # Inherit proprietary blobs
-$(call inherit-product, vendor/samsung/sm7325-common/sm7325-common-vendor.mk)
+$(call inherit-product, vendor/samsung/sm8350-common/sm8350-common-vendor.mk)

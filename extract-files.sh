@@ -74,6 +74,10 @@ function blob_fixup() {
         vendor/lib64/hw/gatekeeper.mdfpp.so|vendor/lib64/libskeymaster4device.so)
             "${PATCHELF}" --replace-needed "libcrypto.so" "libcrypto-v33.so" "${2}"
             ;;
+        vendor/lib/libwvhidl.so|vendor/lib64/libwvhidl.so)
+            [ "$2" = "" ] && return 0
+            grep -q libcrypto_shim.so "${2}" || "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
+            ;;
     esac
 }
 

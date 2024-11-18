@@ -37,7 +37,6 @@
 <!--- 0x0105: Select <lsm_usecase> based on capture device                      -->
 
     <common_config>
-        <param implementer_version="0x0101" />
         <param max_ape_sessions="8" />
         <param enable_failure_detection="false" />
         <param support_device_switch="true" />
@@ -48,14 +47,13 @@
         <!-- Param used to match and obtain device backend index -->
         <param backend_dai_name="VA_CDC_DMA_TX_0" />
         <!-- Param used to indicate if SVA has dedicated SLIM ports -->
-        <param concurrent_capture="true" />
         <param dedicated_sva_path="false" />
         <param dedicated_headset_path="false" />
         <param platform_lpi_enable="true" />
     </common_config>
     <acdb_ids>
         <param DEVICE_HANDSET_MIC_APE="602" />
-        <param DEVICE_HANDSET_MIC_PP_APE="602" />
+        <param DEVICE_HANDSET_MIC_PP_APE="603" />
         <param DEVICE_HANDSET_DMIC_APE="601" />
         <param DEVICE_HANDSET_DMIC_LPI_APE="600" />
         <param DEVICE_HANDSET_TMIC_APE="607" />
@@ -63,7 +61,7 @@
         <param DEVICE_HANDSET_QMIC_APE="605" />
         <param DEVICE_HANDSET_QMIC_LPI_APE="604" />
         <param DEVICE_HEADSET_MIC_APE="608" />
-        <param DEVICE_HEADSET_MIC_APE_LPI="608" />
+        <param DEVICE_HEADSET_MIC_APE_LPI="609" />
     </acdb_ids>
 
     <!-- Multiple sound_model_config tags can be listed, each with unique   -->

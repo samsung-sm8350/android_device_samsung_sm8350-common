@@ -15,14 +15,14 @@
 //
 
 cc_library_static {
-    name: "librecovery_updater_samsung_sm7325",
+    name: "librecovery_updater_samsung_sm8350",
     srcs: [
         "recovery_updater.cpp",
     ],
     include_dirs: [
         "system/libbase/include",
         "bootable/recovery",
-        "bootable/recovery/edify/include",
+        "bootable/deprecated-ota/edify/include",
         "bootable/recovery/otautil/include"
     ],
 }

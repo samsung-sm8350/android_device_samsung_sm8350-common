@@ -30,7 +30,7 @@
 
 import /vendor/etc/init/hw/init.samsung.bsp.rc
 import /vendor/etc/init/hw/init.samsung.display.rc
-import /vendor/etc/init/hw/init.samsung.svcled.rc
+import /vendor/etc/init/hw/init.samsung.connector.rc
 import /vendor/etc/init/init.sensors.spu.rc
 
 on early-init
@@ -41,6 +41,24 @@ on init
     symlink /dev/block/bootdevice/by-name/steady  /dev/block/steady
     symlink /dev/block/bootdevice/by-name/persistent  /dev/block/persistent
 
+
+    # System Performance HyPer Permission
+    chmod 0440 /sys/kernel/gpu/gpu_freq_table
+    chmod 0660 /sys/kernel/gpu/gpu_max_clock
+    chmod 0660 /sys/kernel/gpu/gpu_min_clock
+    chown root system /sys/kernel/gpu/gpu_freq_table
+    chown root system /sys/kernel/gpu/gpu_max_clock
+    chown root system /sys/kernel/gpu/gpu_min_clock
+
+    chmod 0664 /sys/class/devfreq/soc:qcom,cpu4-cpu-ddr-latfloor/min_freq
+    chmod 0664 /sys/class/devfreq/soc:qcom,cpu4-cpu-ddr-latfloor/max_freq
+    chown root system /sys/class/devfreq/soc:qcom,cpu4-cpu-ddr-latfloor/min_freq
+    chown root system /sys/class/devfreq/soc:qcom,cpu4-cpu-ddr-latfloor/max_freq
+
+    chmod 0664 /dev/cpuctl/top-app/cpu.uclamp.min
+    chown root system /dev/cpuctl/top-app/cpu.uclamp.min
+
+	
     # System Performance HyPer Permission
     chmod 0440 /sys/kernel/gpu/gpu_freq_table
     chmod 0660 /sys/kernel/gpu/gpu_max_clock
@@ -93,7 +111,6 @@ on early-boot
     chown system system /sys/class/sec/tsp/cmd
     chown system system /sys/class/sec/tsp/input/enabled
     chmod 0660 /sys/class/sec/tsp/input/enabled
-    chown system system /sys/class/sec/tsp/enabled
     chown system system /sys/class/sec/tsp/input/fod_pressed
     chown root system /proc/tsp_msg
     chmod 0440 /proc/tsp_msg
@@ -111,7 +128,6 @@ on early-boot
     chown system system /dev/tspio
     chown system system /sys/class/sec/tsp/ear_detect_enable
     chown system system /sys/class/sec/tsp/hw_param
-    chown system system /sys/class/sec/tsp/virtual_prox
     chown system system /sys/class/sec/tsp/dualscreen_policy
 
  # Permissions for Touchscreen-1
@@ -144,6 +160,12 @@ on early-boot
     chown system radio /sys/class/sec/tsp2/cmd
     chown system system /sys/class/sec/tsp2/input/enabled
     chmod 0660 /sys/class/sec/tsp2/input/enabled
+
+# Camera
+    chown system camera /sys/class/camera/flash/rear_flash
+    chmod 0664 /sys/class/camera/flash/rear_flash
+    chown system camera /sys/class/camera/rear/ssrm_camera_info
+    chmod 0664 /sys/class/camera/rear/ssrm_camera_info
 
 # Permission for Wacom
     chown system radio /sys/class/sec/sec_epen/cmd
@@ -200,6 +222,10 @@ on boot
     chmod 0660 /dev/k250a
     chown system system /dev/k250a
 
+# Permission for UWB driver
+    chmod 0660 /dev/sr100
+    chown uwb uwb /dev/sr100
+
 # DP AUX switch control
     chmod 0660 /sys/class/dp_sec/dp_sbu_sw_sel
     chown system system /sys/class/dp_sec/dp_sbu_sw_sel
@@ -250,6 +276,10 @@ on boot
     chown radio system /sys/module/qpnp_power_on/parameters/wake_enabled
     chmod 664 /sys/module/qpnp_power_on/parameters/wake_enabled	
 
+# Permissions for PowerShare
+    chown system system /sys/class/power_supply/battery/wc_tx_en
+    chmod 0664 /sys/class/power_supply/battery/wc_tx_en
+
 # Add permission for Display PMIC
     chown system system /sys/class/sec/disp_pmic/enable_fd
     chown system system /sys/class/sec/disp_pmic/power_meter/adc_mode
@@ -264,8 +294,6 @@ on boot
 
 # Video call Virtual Background
     mkdir /data/vendor/segbackground 0771 system system
-
-    chown system system /sys/class/power_supply/battery/gps
 
 service factory_ssc /vendor/bin/factory.ssc
     class core

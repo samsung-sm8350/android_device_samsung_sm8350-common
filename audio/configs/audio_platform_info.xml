@@ -643,6 +643,31 @@
                         <mic_info mic_device_id="builtin_mic_4"
                             channel_mapping="AUDIO_MICROPHONE_CHANNEL_MAPPING_PROCESSED"/>
                     </snd_dev>
+            <!-- Add for Samsung -->
+                    <snd_dev in_snd_device="SND_DEVICE_IN_REC_MAIN_MIC">
+                        <mic_info mic_device_id="builtin_mic_1"
+                            channel_mapping="AUDIO_MICROPHONE_CHANNEL_MAPPING_PROCESSED"/>
+                    </snd_dev>
+                    <snd_dev in_snd_device="SND_DEVICE_IN_REC_SUB_MIC">
+                        <mic_info mic_device_id="builtin_mic_2"
+                            channel_mapping="AUDIO_MICROPHONE_CHANNEL_MAPPING_PROCESSED"/>
+                    </snd_dev>
+                    <snd_dev in_snd_device="SND_DEVICE_IN_VR_MAIN_MIC">
+                        <mic_info mic_device_id="builtin_mic_1"
+                            channel_mapping="AUDIO_MICROPHONE_CHANNEL_MAPPING_PROCESSED"/>
+                    </snd_dev>
+                    <snd_dev in_snd_device="SND_DEVICE_IN_VR_SUB_MIC">
+                        <mic_info mic_device_id="builtin_mic_2"
+                            channel_mapping="AUDIO_MICROPHONE_CHANNEL_MAPPING_PROCESSED"/>
+                    </snd_dev>
+                    <snd_dev in_snd_device="SND_DEVICE_IN_CAMCORDER_MIC">
+                        <mic_info mic_device_id="builtin_mic_1"
+                            channel_mapping="AUDIO_MICROPHONE_CHANNEL_MAPPING_PROCESSED"/>
+                    </snd_dev>
+                    <snd_dev in_snd_device="SND_DEVICE_IN_CAMCORDER_SUB_MIC">
+                        <mic_info mic_device_id="builtin_mic_2"
+                            channel_mapping="AUDIO_MICROPHONE_CHANNEL_MAPPING_PROCESSED"/>
+                    </snd_dev>
             </input_snd_device_mic_mapping>
         </input_snd_device>
     </snd_devices>

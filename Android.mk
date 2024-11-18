@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter a52sxq m52xq a73xq,$(TARGET_DEVICE)),)
+ifneq ($(filter r9q,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
@@ -113,7 +113,7 @@ $(WIFI_FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_cfg.ini $@/wlan/WCNSS_qcom_cfg.ini
 
 ALL_DEFAULT_INSTALLED_MODULES += $(RFS_MSM_ADSP_SYMLINKS) $(RFS_MSM_CDSP_SYMLINKS) $(RFS_MSM_MPSS_SYMLINKS) \
-                                 $(RFS_MSM_WPSS_SYMLINKS) $(RFS_MSM_SLPI_SYMLINKS) $(WIFI_FIRMWARE_SYMLINKS)
+                                 $(RFS_MSM_WPSS_SYMLINKS) $(RFS_MSM_SLPI_SYMLINKS) $(WIFI_FIRMWARE_SYMLINKS) $(WIFI_FIRMWARE_SYMLINKS)
 
 CNE_APP_SYMLINKS := $(TARGET_OUT_VENDOR)/app/CneApp/lib/arm64
 $(CNE_APP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)

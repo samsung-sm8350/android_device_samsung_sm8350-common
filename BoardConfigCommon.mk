@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-COMMON_PATH := device/samsung/sm7325-common
+COMMON_PATH := device/samsung/sm8350-common
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
@@ -55,14 +55,15 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
 
 # Kernel config
-TARGET_KERNEL_SOURCE        := kernel/samsung/sm7325
+TARGET_KERNEL_SOURCE        := kernel/samsung/sm8350
 TARGET_KERNEL_ARCH          := arm64
 TARGET_KERNEL_HEADER_ARCH   := arm64
 TARGET_LINUX_KERNEL_VERSION := 5.4
+TARGET_KERNEL_CLANG_VERSION := r487747c
 
 # Kernel flags
 BOARD_KERNEL_CMDLINE += console=null androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=0 loop.max_part=7 cgroup.memory=nokmem,nosocket firmware_class.path=/vendor/firmware_mnt/image pcie_ports=compat loop.max_part=7 iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1 printk.devkmsg=on
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_BOOT_HEADER_VERSION := 3
 
 BOARD_KERNEL_BASE            := 0x00000000
@@ -85,9 +86,6 @@ BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --board $(BOARD_NAME)
 BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
-
-# Kernel modules
-TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
 
 # Additional root folders
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
@@ -120,7 +118,7 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE           := 10643046400
 BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE       := 3000000000
 BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE       := 400000000
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE      := 1500000000
-BOARD_ODMIMAGE_PARTITION_RESERVED_SIZE     	:= 50000000
+BOARD_ODMIMAGE_PARTITION_RESERVED_SIZE     	    := 50000000
 BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT             := -1
 BOARD_VENDORIMAGE_EXTFS_INODE_COUNT             := -1
 BOARD_PRODUCTIMAGE_EXTFS_INODE_COUNT            := -1
@@ -172,11 +170,11 @@ SOONG_CONFIG_samsungCameraVars_needs_sec_reserved_field := true
 TARGET_KEYMASTER_VARIANT := samsung
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_samsung_sm7325
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_samsung_sm8350
 
 # HIDL manifests
-DEVICE_MANIFEST_SKUS := yupik
-DEVICE_MANIFEST_YUPIK_FILES += $(COMMON_PATH)/configs/manifest_yupik.xml
+DEVICE_MANIFEST_SKUS := lahaina
+DEVICE_MANIFEST_LAHAINA_FILES += $(COMMON_PATH)/configs/manifest_lahaina.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(COMMON_PATH)/configs/framework_compatibility_matrix.xml \
@@ -220,7 +218,7 @@ BOARD_USES_FULL_RECOVERY_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery/root/fstab.qcom
 
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_samsung_sm7325
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_samsung_sm8350
 TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
 
 # SePolicy
@@ -232,18 +230,15 @@ PRODUCT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
 # Vibrator
 $(call soong_config_set,samsungVibratorVars,duration_amplitude,true)
 
-# WiFi
-BOARD_WLAN_DEVICE := qcwcn
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB_EVENT := "ON"
-CONFIG_IEEE80211AX := true
-WIFI_DRIVER_DEFAULT := qca_cld3
-WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"
-WIFI_DRIVER_STATE_OFF := "OFF"
-WIFI_DRIVER_STATE_ON := "ON"
+## Wi-Fi
+BOARD_WLAN_BCMDHD_SAE            := true
+BOARD_WLAN_DEVICE                := bcmdhd
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_HOSTAPD_DRIVER             := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
+WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
+WIFI_FEATURE_HOSTAPD_11AX        := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
-WPA_SUPPLICANT_VERSION := VER_0_8_X
+WPA_SUPPLICANT_VERSION           := VER_0_8_X

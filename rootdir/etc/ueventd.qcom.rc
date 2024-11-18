@@ -28,7 +28,7 @@
 # Firmware directory Path
 # Below macro will be read by uevent and path will
 # be added to search path for firmware loading
-firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /spu/
+firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /spu/ /vendor/firmware/wifi/
 
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0660   system     oem_2901
@@ -62,11 +62,11 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /dev/hgsl                 0666   system     system
 /dev/iio:device*          0664   system     system
 
+# dev ril bridge
+/dev/drb                  0660   system     radio
+
 #permissions for UFS RPMB BSG device node
 /dev/0:0:0:49476          0600   system     system
-
-# dev ril bridge
-/dev/drb	              0660   system     radio
 
 #permissions for USB
 /dev/usb_mtp_gadget      0660     system        mtp
@@ -81,6 +81,7 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /dev/smd2                 0660   bluetooth  bluetooth
 /dev/smd3                 0660   bluetooth  bluetooth
 /dev/btpower              0660   bluetooth  system
+/dev/btfmslim             0664   bluetooth  system
 
 #permissions for pta
 /dev/pta                  0660   system     system
@@ -171,7 +172,9 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /dev/adsprpc-smd-secure   0644   system     system
 /dev/system_health_monitor 0644  radio      system
 /dev/mdss_rotator         0664   system     system
-
+# ss_hwvault & splog
+/dev/ss_hwvault           0660   system     system
+/dev/splog                0660   system     system
 #QDSS
 /dev/byte-cntr            0660   system    oem_2902
 /dev/mhi_qdss             0660   system    oem_2902
@@ -306,6 +309,11 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /sys/devices/virtual/input/input*                   set_delay_ms     0660  system   input
 /sys/devices/virtual/input/input*                   do_flush         0660  system   input
 
+#grip sensor
+/dev/input/event*				0660	system	input
+/sys/devices/virtual/input/input*   enable      0660	system	input
+/sys/devices/virtual/input/input*   enable2     0660    system  input
+
 # vm_bms
 /dev/vm_bms               0660   system     system
 /dev/battery_data         0660   system     system
@@ -400,10 +408,16 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /sys/class/dual_role_usb/*	power_role	0660	system	system
 /sys/class/dual_role_usb/*	mode		0660	system	system
 
+#permissions secure_lock
+/sys/class/usb_notify/usb_control   usb_sl      0664     system        usb
+
 #Memory Offline
 /sys/devices/system/memory/memory* state    0660 system system
 
 /sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
+
+#KGSL
+/sys/class/kgsl/kgsl-3d0    perfcounter              0660    root    shell
 
 # sys-fs display
 /sys/class/graphics/fb*     hpd                      0664    system  graphics
@@ -499,6 +513,35 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_temp_scale                   0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_temp_scale_available         0664    system  system
 
+# flicker sensor
+/sys/class/sensors/als_rear    name                    0444    system    radio
+/sys/class/sensors/als_rear    vendor                  0444    system    radio
+/sys/class/sensors/als_rear    part_type               0444    system    radio
+/sys/class/sensors/als_rear    device_id               0444    system    radio
+/sys/class/sensors/als_rear    als_flush               0220    system    radio
+/sys/class/sensors/als_rear    write_reg               0220    system    system
+/sys/class/sensors/als_rear    read_reg                0664    system    system
+/sys/class/sensors/als_rear    eol_mode                0664    system    system
+/sys/class/sensors/als_rear    eol_spec                0444    system    system
+/sys/class/sensors/als_rear    als_factory_cmd         0444    system    system
+/sys/class/sensors/als_rear    als_red                 0444    system    system
+/sys/class/sensors/als_rear    als_green               0444    system    system
+/sys/class/sensors/als_rear    als_blue                0444    system    system
+/sys/class/sensors/als_rear    als_ir                  0444    system    system
+/sys/class/sensors/als_rear    als_clear               0444    system    system
+/sys/class/sensors/als_rear    als_wideband            0444    system    system
+/sys/class/sensors/als_rear    als_version             0444    system    system
+/sys/class/sensors/als_rear    als_raw_data            0444    system    system
+/sys/class/sensors/als_rear    als_debug               0664    system    system
+/sys/class/sensors/als_rear    flicker_data            0444    system    system
+/sys/class/sensors/als_rear    i2c_err_cnt             0664    system    system
+/sys/class/sensors/als_rear    int_pin_check           0444    system    system
+/sys/class/sensors/als_rear    mode_cnt                0664    system    system
+/sys/class/sensors/als_rear    curr_adc                0664    system    system
+/sys/class/sensors/als_rear    sensor_info             0444    system    system
+/dev/als_rear                                          0600    system    system
+
+
 # Camera Start
 # Camera::Rear Start
 # Camera::Rear1
@@ -533,6 +576,7 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /sys/class/camera/rear    rear_frs_test             0444    system    system
 /sys/class/camera/rear    cam_ln_test               0444    system    system
 /sys/class/camera/rear    supported_cameraIds       0664    system    system
+/sys/class/camera/rear    rear_aperture_halltest    0444    system    system
 /sys/class/camera/rear    rear_tofcal               0444    system    system
 /sys/class/camera/rear    rear_tofcal_extra         0444    system    system
 /sys/class/camera/rear    rear_tofcal_size          0444    system    system
@@ -650,14 +694,47 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /sys/class/camera/front    front_tofcal_size        0664    system    system
 /sys/class/camera/front    front_tofcal_uid         0664    system    system
 
+# Camera::Front2
+/sys/class/camera/front    front2_camfw             0664    system    system
+/sys/class/camera/front    front2_camtype           0444    system    system
+/sys/class/camera/front    front2_caminfo           0664    system    system
+/sys/class/camera/front    front2_camfw_full        0664    system    system
+/sys/class/camera/front    front2_checkfw_user      0664    system    system
+/sys/class/camera/front    front2_checkfw_factory   0664    system    system
+/sys/class/camera/front    front2_moduleinfo        0664    system    system
+/sys/class/camera/front    front2_moduleid          0444    system    system
+/sys/class/camera/front    front2_mtf_exif          0664    system    system
+/sys/class/camera/front    front2_hwparam           0664    system    system
+/sys/class/camera/front    front2_dualcal           0444    system    system
+/sys/class/camera/front    front2_dualcal_size      0444    system    system
+/sys/class/camera/front    front2_tilt              0444    system    system
+
+# Camera::Front3
+/sys/class/camera/front    front3_camfw             0664    system    system
+/sys/class/camera/front    front3_camtype           0444    system    system
+/sys/class/camera/front    front3_caminfo           0664    system    system
+/sys/class/camera/front    front3_camfw_full        0664    system    system
+/sys/class/camera/front    front3_camfw_load        0664    system    system
+/sys/class/camera/front    front3_checkfw_user      0664    system    system
+/sys/class/camera/front    front3_checkfw_factory   0664    system    system
+/sys/class/camera/front    front3_moduleinfo        0664    system    system
+/sys/class/camera/front    front3_afcal             0444    system    system
+/sys/class/camera/front    front3_moduleid          0444    system    system
+/sys/class/camera/front    front3_mtf_exif          0664    system    system
+/sys/class/camera/front    front3_hwparam           0664    system    system
 
 # Camera::Front End
 
+# Camera::Secure
+/sys/class/camera/secure    iris_camfw             0664    system    system
+/sys/class/camera/secure    iris_camfw_full        0664    system    system
+/sys/class/camera/secure    iris_checkfw_factory   0664    system    system
+/sys/class/camera/secure    iris_checkfw_user      0664    system    system
+/sys/class/camera/secure    iris_caminfo           0664    system    system
+/sys/class/camera/secure    iris_hwparam           0664    system    system
+
 # Camera::Flash
-/sys/class/camera/flash                                 rear_flash                      0664    system  camera
-/sys/class/camera/flash                                 rear_flash2                     0664    system  camera
-/sys/class/leds/led:switch_0                            brightness                      0664    system  system
-/sys/class/leds/led:torch_0                             brightness                      0664    system  system
+/sys/class/camera/flash    rear_flash              0664    system    system
 
 # Camera::Ois
 /sys/class/camera/ois    selftest                       0444    system    system
@@ -701,7 +778,7 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /sys/class/camera/dual    fallback           0664    system    system
 
 # Camera::Adaptive mipi
-/sys/class/camera/test    adaptive_test           0664    system    
+/sys/class/camera/test    adaptive_test           0664    system    system
 
 #Camera SVC
 /sys/devices/svc/Camera    SVC_rear_module            0444    system    system
@@ -715,3 +792,47 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /
 /mnt/vendor/efs    camera           0775    system    system
 
 # Camera End
+
+
+#
+# Permissions for Vibrator [
+#
+
+# Vibrator nodes permission (timed_output)
+/sys/class/timed_output/vibrator    enable    			0664	system system
+/sys/class/timed_output/vibrator    motor_type    		0664	system system
+/sys/class/timed_output/vibrator    intensity  			0664	system system
+/sys/class/timed_output/vibrator    haptic_engine   	0664	system system
+/sys/class/timed_output/vibrator    multi_freq	    	0664	system system
+/sys/class/timed_output/vibrator    num_waves    		0664	system system
+/sys/class/timed_output/vibrator    cp_trigger_index    0664	system system
+/sys/class/timed_output/vibrator    cp_trigger_queue    0664	system system
+/sys/class/timed_output/vibrator    pwle			    0664	system system
+/sys/class/timed_output/vibrator    virtual_composite_indexes   0664	system system
+/sys/class/timed_output/vibrator    virtual_pwle_indexes    	0664	system system
+/sys/class/timed_output/vibrator    event_cmd    		0664	system system
+/sys/class/timed_output/vibrator    intensities    		0664	system system
+/sys/class/timed_output/vibrator    haptic_intensities  0664	system system
+/sys/class/timed_output/vibrator    haptic_durations    0664	system system
+/sys/class/timed_output/vibrator    use_sep_index	    0220	system system
+
+# Vibrator nodes permission - inputff
+/sys/class/sec_vib_inputff/control	i2s_test			0664	system system
+/sys/class/sec_vib_inputff/control	firmware_load		0664	system system
+/sys/class/sec_vib_inputff/control	current_temp		0664	system system
+/sys/class/sec_vib_inputff/control	ach_percent			0664	system system
+/sys/class/sec_vib_inputff/control	trigger_calibration	0664	system system
+/sys/class/sec_vib_inputff/control	f0_measured			0664	system system
+/sys/class/sec_vib_inputff/control	f0_offset			0664	system system
+/sys/class/sec_vib_inputff/control	f0_stored			0664	system system
+/sys/class/sec_vib_inputff/control	use_sep_index		0220	system system
+/sys/class/sec_vib_inputff/control	event_cmd			0664	system system
+
+# Vibrator nodes permission (vib_info)
+/sys/class/vib_info_class/vib_support_info	intensities			0664	system system
+/sys/class/vib_info_class/vib_support_info	haptic_intensities	0664	system system
+/sys/class/vib_info_class/vib_support_info	functions			0664	system system
+
+#
+# ] Permissions for Vibrator
+#
