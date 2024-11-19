@@ -109,12 +109,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-impl \
     android.hardware.bluetooth@1.0.vendor
 
-# Camera
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider-service.samsung \
-    libgrallocusage.vendor \
-    vendor.qti.hardware.camera.device@1.0.vendor
-
 # CAS
 PRODUCT_PACKAGES += \
     android.hardware.cas@1.2-service
