@@ -1038,7 +1038,7 @@ vendor/lib/libminkdescriptor.so
 vendor/lib/libqcbor.so
 vendor/lib/libqisl.so
 vendor/lib/libops.so
-vendor/lib/libQSEEComAPI.so
+-vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libsecureui_svcsock.so
 vendor/lib/libssd.so
@@ -1054,7 +1054,7 @@ vendor/lib64/libminkdescriptor.so
 vendor/lib64/libqcbor.so
 vendor/lib64/libqisl.so
 vendor/lib64/libops.so
-vendor/lib64/libQSEEComAPI.so
+-vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
