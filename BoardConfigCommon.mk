@@ -55,7 +55,7 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
 
 # Kernel config
-TARGET_KERNEL_SOURCE        := kernel/samsung/sm8350
+TARGET_KERNEL_SOURCE        := kernel/samsung/b2q
 TARGET_KERNEL_ARCH          := arm64
 TARGET_KERNEL_HEADER_ARCH   := arm64
 TARGET_LINUX_KERNEL_VERSION := 5.4
@@ -156,15 +156,15 @@ BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_ALSA_AUDIO := true
 
 # Camera
-SOONG_CONFIG_NAMESPACES += samsungCameraVars
-SOONG_CONFIG_samsungCameraVars += \
+#SOONG_CONFIG_NAMESPACES += samsungCameraVars
+#SOONG_CONFIG_samsungCameraVars += \
     extra_ids \
     needs_sec_reserved_field
 
 # ID=54 is macro
-SOONG_CONFIG_samsungCameraVars_extra_ids := 54
+#SOONG_CONFIG_samsungCameraVars_extra_ids := 54
 
-SOONG_CONFIG_samsungCameraVars_needs_sec_reserved_field := true
+#SOONG_CONFIG_samsungCameraVars_needs_sec_reserved_field := true
 
 # Keymaster
 TARGET_KEYMASTER_VARIANT := samsung
