@@ -91,7 +91,9 @@ BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
 BOARD_ROOT_EXTRA_FOLDERS += \
-    efs
+    efs \
+    metadata \
+    spu
 
 # File systems
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
