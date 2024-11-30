@@ -30,6 +30,8 @@ write_headers "r9q"
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
+sed -zi 's/	name: "libQSEEComAPI",/	name: "libQSEEComAPI",\n	check_elf_files: false,/g' "$ANDROIDBP"
+
 # Finish
 write_footers
 

@@ -50,19 +50,19 @@ vendor/lib64/libsnpe_dsp_domains_v3.so
 
 # Audio
 vendor/lib/libaudioparsers.so
-vendor/lib/libsecaudioinfo.so
+-vendor/lib/libsecaudioinfo.so
 vendor/lib/libsecaudiocoreutils.so
-vendor/lib/libaudio_log_utils.so
+-vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioconfigstore.so
-vendor/lib/vendor.qti.hardware.audiohalext@1.0.so
+-vendor/lib/vendor.qti.hardware.audiohalext@1.0.so
 vendor/lib64/libaudioparsers.so
-vendor/lib64/libsecaudioinfo.so
+-vendor/lib64/libsecaudioinfo.so
 vendor/lib64/libsecaudiocoreutils.so
 vendor/lib64/libaudioconfigstore.so
 vendor/lib/libsamsungVoipResampler.so
 vendor/lib/lib_soundaliveresampler.so
 vendor/lib/lib_SoundAlive_SRC384_ver320.so
-vendor/lib/librecordalive.so
+-vendor/lib/librecordalive.so
 vendor/lib/lib_SamsungRec_07020.so
 vendor/lib/libexthwplugin.so
 vendor/lib/libsndmonitor.so
@@ -89,7 +89,7 @@ vendor/etc/audio_tuning_mixer.txt
 # Soundtrigger
 vendor/lib/hw/sound_trigger.primary.lahaina.so
 vendor/lib64/hw/sound_trigger.primary.lahaina.so
-vendor/lib/libaudio_soundtrigger.so
+-vendor/lib/libaudio_soundtrigger.so
 vendor/lib/libgcs.so
 vendor/lib/libgcs-ipc.so
 vendor/lib/libgcs-osal.so
@@ -1060,11 +1060,3 @@ vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 vendor/lib64/libspl.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
-
-# Wi-Fi
-vendor/firmware/bcmdhd_clm.blob
-vendor/firmware/bcmdhd_mfg.bin_b1
-vendor/firmware/bcmdhd_mon.bin_b1
-vendor/firmware/bcmdhd_sta.bin_b1
-vendor/firmware/nvram.txt_1rh_es43_b1
-vendor/firmware/nvram.txt_CS01_semco_b1
