@@ -1,4 +1,4 @@
-# All blobs from G990BXXS9GXI1 (U), unless pinned
+# All blobs from F711BXXSAIXJ1 (U), unless pinned
 
 # ACDB
 vendor/lib/libacdb-fts.so
@@ -118,14 +118,15 @@ system_ext/etc/permissions/audiosphere.xml
 system_ext/framework/audiosphere.jar
 
 # Bluetooth
-vendor/bin/hw/android.hardware.bluetooth@1.0-service
 vendor/lib/vendor.samsung.hardware.bluetooth.a2dp@1.0.so
 vendor/lib/hw/vendor.samsung.hardware.bluetooth.a2dp@1.0-impl.so
-vendor/lib/vendor.samsung.hardware.bluetooth.audio@2.0.so
-vendor/etc/init/android.hardware.bluetooth@1.0-service.rc
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib/vendor.samsung.hardware.bluetooth.audio@2.1.so
+vendor/lib/vendor.samsung.hardware.bluetooth@2.0.so
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 vendor/lib64/vendor.samsung.hardware.bluetooth.a2dp@1.0.so
 vendor/lib64/hw/vendor.samsung.hardware.bluetooth.a2dp@1.0-impl.so
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl.so
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/vendor.samsung.hardware.bluetooth@2.0.so
 vendor/lib/libidl.so
 vendor/lib64/libidl.so
@@ -134,12 +135,10 @@ vendor/lib/libqti_vndfwk_detect.so
 vendor/lib64/libqti_vndfwk_detect.so
 vendor/lib/libbthost_if.so
 vendor/lib64/libbthost_if.so
-vendor/lib64/libbt-vendor.so
 
 # Camera
 vendor/lib/libsensorndkbridge.so
 vendor/lib64/libsensorndkbridge.so
-vendor/lib/libsuper_night_interface.so
 vendor/lib/libscveCommon.so
 vendor/lib/libuniplugin.so
 vendor/lib/libIDDQD_core.so
@@ -182,17 +181,16 @@ vendor/lib/libDualCamBokehCapture.camera.samsung.so
 vendor/lib/libhypermotion_interface.so
 vendor/lib/liblivefocus_preview_interface.so
 vendor/lib/libhigh_dynamic_range_bokeh.so
-vendor/lib/libswldc_capture_core.camera.samsung.so
 vendor/lib/libIDDQD_interface.so
 system/lib/libSEF.quram.so
 vendor/lib/libmpbase.so
 vendor/lib/libLocalTM_capture_core.camera.samsung.so
 vendor/lib/libvdis_core.so
-vendor/lib/unihal_main@2.15.so
-vendor/lib/unihal_cutils@2.15.so
+vendor/lib/unihal_main.so
+vendor/lib/unihal_cutils.so
+vendor/lib/unihal_entry.so
 vendor/lib/unihal_uniplugin@1.0.so
 vendor/lib/libface_landmark.arcsoft.so
-vendor/lib64/libsuper_night_interface.so
 vendor/lib64/libscveCommon.so
 vendor/lib64/libformatConverter.unifunc.so
 vendor/lib64/libuniplugin.so
@@ -238,14 +236,14 @@ vendor/lib64/libDualCamBokehCapture.camera.samsung.so
 vendor/lib64/libhypermotion_interface.so
 vendor/lib64/liblivefocus_preview_interface.so
 vendor/lib64/libhigh_dynamic_range_bokeh.so
-vendor/lib64/libswldc_capture_core.camera.samsung.so
 vendor/lib64/libIDDQD_interface.so
 system/lib64/libSEF.quram.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libLocalTM_capture_core.camera.samsung.so
 vendor/lib64/libvdis_core.so
-vendor/lib64/unihal_main@2.15.so
-vendor/lib64/unihal_cutils@2.15.so
+vendor/lib64/unihal_main.so
+vendor/lib64/unihal_cutils.so
+vendor/lib64/unihal_entry.so
 vendor/lib64/unihal_uniplugin@1.0.so
 vendor/lib64/libface_landmark.arcsoft.so
 vendor/lib/libofflinelog.so
@@ -484,6 +482,8 @@ vendor/lib/libsdm-diag.so
 vendor/lib/libsdmextension.so
 vendor/lib/libdisplayskuutils.so
 vendor/lib/libtinyxml2_1.so
+vendor/lib/libdisplaydebug.so
+vendor/lib64/libdisplaydebug.so
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libsdm-colormgr-algo.so
 vendor/lib64/libtinyxml2_1.so
@@ -596,12 +596,6 @@ vendor/lib/hw/android.hardware.health@2.0-impl-2.1-samsung.so
 vendor/lib64/hw/android.hardware.health@2.0-impl-2.1-samsung.so
 vendor/lib/vendor.samsung.hardware.health@2.0.so
 vendor/lib64/vendor.samsung.hardware.health@2.0.so
-
-# HotwordEnrollment
--product/priv-app/HotwordEnrollmentOKGoogleEx3HEXAGON/HotwordEnrollmentOKGoogleEx3HEXAGON.apk
--product/priv-app/HotwordEnrollmentXGoogleEx3HEXAGON/HotwordEnrollmentXGoogleEx3HEXAGON.apk
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
-system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
 # IOP
 vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
@@ -854,75 +848,82 @@ vendor/lib64/vendor.samsung.hardware.radio.bridge@2.1.so
 vendor/lib64/vendor.samsung.hardware.radio.channel@2.0.so
 
 # Sensor-configs
-vendor/etc/sensors/config/faroe_ak991x_0.json
-vendor/etc/sensors/config/faroe_bu52053nvx_0.json
-vendor/etc/sensors/config/faroe_default_sensors.json
-vendor/etc/sensors/config/faroe_dynamic_sensors.json
-vendor/etc/sensors/config/faroe_idp_ak991x_0.json
-vendor/etc/sensors/config/faroe_idp_lsm6dst_0.json
-vendor/etc/sensors/config/faroe_idp_lsm6dst_1.json
-vendor/etc/sensors/config/faroe_irq.json
-vendor/etc/sensors/config/faroe_lps22hh_0.json
-vendor/etc/sensors/config/faroe_lsm6dst_0.json
-vendor/etc/sensors/config/faroe_lsm6dst_1.json
-vendor/etc/sensors/config/faroe_power_0.json
-vendor/etc/sensors/config/faroe_qrd_ak991x_0.json
-vendor/etc/sensors/config/faroe_qrd_lsm6dst_0.json
-vendor/etc/sensors/config/faroe_qrd_sx932x_0.json
-vendor/etc/sensors/config/faroe_qrd_tmd3702_0.json
-vendor/etc/sensors/config/faroe_sx932x_0.json
-vendor/etc/sensors/config/faroe_tmd3702_0.json
-vendor/etc/sensors/config/faroe_vertigo_ak991x_0.json
-vendor/etc/sensors/config/faroe_vertigo_lsm6dst_0.json
-vendor/etc/sensors/config/faroe_vertigo_lsm6dst_1.json
-vendor/etc/sensors/config/kodiak_qrd_ak991x_0.json
-vendor/etc/sensors/config/kodiak_qrd_ak991x_1.json
 vendor/etc/sensors/config/lahaina_ak991x_0.json
-vendor/etc/sensors/config/lahaina_ak991x_1.json
-vendor/etc/sensors/config/lahaina_default_sensors.json
-vendor/etc/sensors/config/lahaina_hdk_ak991x_0.json
-vendor/etc/sensors/config/lahaina_hdk_lsm6dst_0.json
+vendor/etc/sensors/config/faroe_idp_ak991x_0.json
+vendor/etc/sensors/config/sns_fmv_legacy.json
+vendor/etc/sensors/config/lahaina_ak997x_5.json
+vendor/etc/sensors/config/sns_flip_state.json
+vendor/etc/sensors/config/sns_facing.json
+vendor/etc/sensors/config/faroe_vertigo_lsm6dst_0.json
+vendor/etc/sensors/config/faroe_lps22hh_0.json
 vendor/etc/sensors/config/lahaina_hdk_lsm6dst_1.json
+vendor/etc/sensors/config/sns_hw_revision.json
+vendor/etc/sensors/config/faroe_power_0.json
+vendor/etc/sensors/config/sns_basic_gestures.json
+vendor/etc/sensors/config/lsm6dso_1.json
+vendor/etc/sensors/config/sns_device_orient.json
+vendor/etc/sensors/config/sns_direct_channel.json
+vendor/etc/sensors/config/faroe_default_sensors.json
+vendor/etc/sensors/config/lahaina_tcs340x_0.json
+vendor/etc/sensors/config/sns_dpc.json
+vendor/etc/sensors/config/lahaina_default_sensors.json
+vendor/etc/sensors/config/faroe_ak991x_0.json
+vendor/etc/sensors/config/lahaina_ak991x_5.json
+vendor/etc/sensors/config/sns_smd.json
+vendor/etc/sensors/config/faroe_tmd3702_0.json
+vendor/etc/sensors/config/sns_bring_to_ear.json
+vendor/etc/sensors/config/sns_mag_cal_legacy.json
+vendor/etc/sensors/config/sns_amd_sw_enabled.json
+vendor/etc/sensors/config/sns_tilt_sw_disabled.json
+vendor/etc/sensors/config/faroe_idp_lsm6dst_0.json
+vendor/etc/sensors/config/faroe_vertigo_ak991x_0.json
+vendor/etc/sensors/config/sns_amd.json
+vendor/etc/sensors/config/faroe_vertigo_lsm6dst_1.json
+vendor/etc/sensors/config/sns_geomag_rv.json
+vendor/etc/sensors/config/kodiak_qrd_ak991x_1.json
+vendor/etc/sensors/config/lahaina_lsm6dso_0_0.json
+vendor/etc/sensors/config/lahaina_lps22hh_0.json
+vendor/etc/sensors/config/sns_mag_cal.json
+vendor/etc/sensors/config/sns_dae.json
+vendor/etc/sensors/config/faroe_dynamic_sensors.json
+vendor/etc/sensors/config/sns_amd_sw_disabled.json
+vendor/etc/sensors/config/lahaina_lsm6dso_1_0.json
+vendor/etc/sensors/config/faroe_lsm6dst_1.json
+vendor/etc/sensors/config/lahaina_ak991x_2.json
+vendor/etc/sensors/config/faroe_qrd_tmd3702_0.json
+vendor/etc/sensors/config/faroe_qrd_ak991x_0.json
+vendor/etc/sensors/config/lsm6dso_0.json
+vendor/etc/sensors/config/lahaina_ak991x_7.json
+vendor/etc/sensors/config/sns_cm.json
+vendor/etc/sensors/config/kodiak_qrd_ak991x_0.json
 vendor/etc/sensors/config/lahaina_hdk_sx932x_0.json
+vendor/etc/sensors/config/lahaina_hdk_ak991x_0.json
+vendor/etc/sensors/config/sns_pedometer.json
+vendor/etc/sensors/config/sns_distance_bound.json
+vendor/etc/sensors/config/lahaina_hdk_lsm6dst_0.json
+vendor/etc/sensors/config/sns_diag_filter.json
+vendor/etc/sensors/config/sns_gyro_cal.json
+vendor/etc/sensors/config/sns_multishake.json
+vendor/etc/sensors/config/faroe_lsm6dst_0.json
+vendor/etc/sensors/config/faroe_qrd_sx932x_0.json
+vendor/etc/sensors/config/lahaina_lsm6dso_1_7.json
+vendor/etc/sensors/config/sns_tilt_sw_enabled.json
+vendor/etc/sensors/config/faroe_irq.json
+vendor/etc/sensors/config/sns_rmd.json
+vendor/etc/sensors/config/sns_tilt_to_wake.json
+vendor/etc/sensors/config/sns_fmv.json
+vendor/etc/sensors/config/sns_tilt.json
+vendor/etc/sensors/config/lahaina_ak997x_0.json
+vendor/etc/sensors/config/lahaina_lidangle_0.json
+vendor/etc/sensors/config/lahaina_power_0.json
+vendor/etc/sensors/config/faroe_sx932x_0.json
+vendor/etc/sensors/config/lahaina_stk3a9x_0.json
+vendor/etc/sensors/config/faroe_qrd_lsm6dst_0.json
+vendor/etc/sensors/config/faroe_bu52053nvx_0.json
+vendor/etc/sensors/config/faroe_idp_lsm6dst_1.json
+vendor/etc/sensors/config/sns_rotv.json
 vendor/etc/sensors/config/lahaina_hdk_tmd2725_0.json
 vendor/etc/sensors/config/lahaina_irq.json
-vendor/etc/sensors/config/lahaina_lps22hh_0.json
-vendor/etc/sensors/config/lahaina_lsm6dso_0_0.json
-vendor/etc/sensors/config/lahaina_lsm6dso_0_5.json
-vendor/etc/sensors/config/lahaina_power_0.json
-vendor/etc/sensors/config/lahaina_stk3a9x_0.json
-vendor/etc/sensors/config/lsm6dso_0.json
-vendor/etc/sensors/config/sns_amd.json
-vendor/etc/sensors/config/sns_amd_sw_disabled.json
-vendor/etc/sensors/config/sns_amd_sw_enabled.json
-vendor/etc/sensors/config/sns_basic_gestures.json
-vendor/etc/sensors/config/sns_bring_to_ear.json
-vendor/etc/sensors/config/sns_cm.json
-vendor/etc/sensors/config/sns_dae.json
-vendor/etc/sensors/config/sns_device_orient.json
-vendor/etc/sensors/config/sns_diag_filter.json
-vendor/etc/sensors/config/sns_direct_channel.json
-vendor/etc/sensors/config/sns_distance_bound.json
-vendor/etc/sensors/config/sns_dpc.json
-vendor/etc/sensors/config/sns_facing.json
-vendor/etc/sensors/config/sns_flip_state.json
-vendor/etc/sensors/config/sns_fmv.json
-vendor/etc/sensors/config/sns_fmv_legacy.json
-vendor/etc/sensors/config/sns_geomag_rv.json
-vendor/etc/sensors/config/sns_gyro_cal.json
-vendor/etc/sensors/config/sns_hw_revision.json
-vendor/etc/sensors/config/sns_mag_cal.json
-vendor/etc/sensors/config/sns_mag_cal_legacy.json
-vendor/etc/sensors/config/sns_multishake.json
-vendor/etc/sensors/config/sns_pedometer.json
-vendor/etc/sensors/config/sns_rmd.json
-vendor/etc/sensors/config/sns_rotv.json
-vendor/etc/sensors/config/sns_smd.json
-vendor/etc/sensors/config/sns_tilt.json
-vendor/etc/sensors/config/sns_tilt_sw_disabled.json
-vendor/etc/sensors/config/sns_tilt_sw_enabled.json
-vendor/etc/sensors/config/sns_tilt_to_wake.json
-vendor/etc/sensors/sns_reg_config
 
 # Sensors
 vendor/bin/factory.ssc
@@ -967,10 +968,6 @@ vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib/libtime_genoff.so
 vendor/lib64/libtime_genoff.so
-
-# RIL - UIM
-product/etc/permissions/UimService.xml
-product/framework/uimservicelibrary.jar
 
 # RemoteFS
 vendor/bin/rmt_storage
