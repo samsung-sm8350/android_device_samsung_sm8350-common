@@ -372,12 +372,13 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors-service.samsung-multihal \
     android.hardware.sensors@2.0-ScopedWakelock.vendor \
     android.frameworks.sensorservice@1.0.vendor \
-    libsensorndkbridge
+    libsensorndkbridge \
+    hals.conf_symlink
 
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0.vendor \
-    #android.frameworks.cameraservice.service@2.1.vendor \
+    android.frameworks.cameraservice.service@2.1.vendor \
     libcamera_metadata.vendor
 
 # Touch features

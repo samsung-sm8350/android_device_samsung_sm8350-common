@@ -12,3 +12,10 @@ install_symlink {
     installed_location: "firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini",
     symlink_target: "/vendor/etc/wifi/WCNSS_qcom_cfg.ini",
 }
+
+install_symlink {
+    name: "hals.conf_symlink",
+    device_specific: true,
+    installed_location: "etc/sensors/hals.conf",
+    symlink_target: "/vendor/etc/sensors/hals.conf",
+}
