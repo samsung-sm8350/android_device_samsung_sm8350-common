@@ -600,7 +600,98 @@
         }
       ]
     },
-	{
+    {
+      "Name": "FreezerThawed",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "SFreezerState",
+            "Value": "THAWED"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "FreezerFrozen",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "SFreezerState",
+            "Value": "FROZEN"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "SlowdownThawed",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "SlowdownState",
+            "Value": "THAWED"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "SlowdownFrozen",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "SlowdownState",
+            "Value": "FROZEN"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "DoSomethingOlaf",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "OlafState",
+            "Value": "FROZEN"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "DoNothingOlaf",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "OlafState",
+            "Value": "THAWED"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "JoinOlaf",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "sfreezer",
+            "Path": "olaf"
+          }
+        }
+      ]
+    },
+    {
       "Name": "TopAppUsage",
       "Actions": [
         {
