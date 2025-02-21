@@ -130,7 +130,9 @@ PRODUCT_PACKAGES += \
 
 # GNSS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.1.vendor
+    android.hardware.gnss@2.1.vendor \
+    libprocessgroup.vendor \
+    libexpat.vendor
 
 # Graphics
 PRODUCT_AAPT_CONFIG := normal
