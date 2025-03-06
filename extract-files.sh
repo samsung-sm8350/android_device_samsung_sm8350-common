@@ -77,6 +77,10 @@ function blob_fixup() {
         vendor/lib/libwvhidl.so|vendor/lib/mediadrm/libwvdrmengine.so)
             "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
             ;;
+        vendor/lib/sensors.**.so|vendor/lib64/sensors.**.so)
+            sed -i 's/sec_touchproximity/proximity_sensor\x00y/g' "${2}"
+            sed -i 's/com.samsung.permission./\x00om.samsung.permission./g' "${2}"
+            ;;
     esac
 }
 

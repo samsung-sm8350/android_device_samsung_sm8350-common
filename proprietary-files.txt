@@ -906,11 +906,9 @@ vendor/lib64/libsns_device_mode_stub.so
 vendor/lib64/libnanopb.so
 vendor/lib/sensors.grip.so
 vendor/lib/sensors.ssc.so
-vendor/lib/sensors.grip.so
 vendor/lib/sensors.flicker.so
 vendor/lib64/sensors.grip.so
 vendor/lib64/sensors.ssc.so
-vendor/lib64/sensors.grip.so
 vendor/lib64/sensors.flicker.so
 vendor/etc/init/init.sensors.spu.rc
 vendor/etc/init/init.vendor.sensors.rc
@@ -919,6 +917,9 @@ vendor/bin/init.qcom.sensors.sh
 vendor/bin/sensors.qti
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sns_reg_config
+-vendor/bin/hw/android.hardware.sensors@2.1-service.multihal
+vendor/etc/init/android.hardware.sensors@2.1-service-multihal.rc
+-vendor/etc/vintf/manifest/android.hardware.sensors@2.1-multihal.xml
 
 # Thermal
 vendor/bin/thermal-engine
