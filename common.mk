@@ -69,6 +69,9 @@ PRODUCT_PACKAGES += \
     vendor_modprobe.sh \
     init.qti.chg_policy.sh \
     init.qti.qcv.sh
+    
+PRODUCT_PACKAGES += \
+    dlopen
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom \
@@ -349,7 +352,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.5.vendor \
     android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.config-V1-ndk.vendor:64 \
+    android.hardware.radio.data-V1-ndk.vendor:64 \
     android.hardware.radio.deprecated@1.0.vendor \
+    android.hardware.radio.messaging-V1-ndk.vendor:64 \
+    android.hardware.radio.modem-V1-ndk.vendor:64 \
+    android.hardware.radio.network-V1-ndk.vendor:64 \
+    android.hardware.radio.sim-V1-ndk.vendor:64 \
+    android.hardware.radio.voice-V1-ndk.vendor:64 \
+    android.hardware.secure_element@1.0.vendor \
     libxml2 \
     librilutils \
     librmnetctl \
@@ -358,6 +369,11 @@ PRODUCT_PACKAGES += \
     sehradiomanager \
     libjsoncpp.vendor
 
+# VNDK
+PRODUCT_PACKAGES += \
+    libnetutils.vendor:64 \
+    libsqlite.vendor:64
+    
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.0-ScopedWakelock.vendor \
@@ -445,7 +461,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH) \
     hardware/google/interfaces \
-    hardware/google/pixel \
     hardware/samsung \
     hardware/qcom-caf/sm8350
 

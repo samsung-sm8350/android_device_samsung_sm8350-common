@@ -58,8 +58,8 @@ void vendor_load_properties()
     }
 
     if (device.size() == 0) {
-        LOG(ERROR) << "Could not detect device, forcing r9q";
-        device = "r9q";
+        LOG(ERROR) << "Could not detect device, forcing t2q";
+        device = "t2q";
     }
 
     name = device + "xx";
