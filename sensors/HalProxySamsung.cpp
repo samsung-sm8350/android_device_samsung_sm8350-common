@@ -21,7 +21,8 @@ ndk::ScopedAStatus HalProxySamsung::getSensorsList(
     for (const auto& sensor : HalProxy::getSensors()) {
         SensorInfo dst = sensor.second;
 
-        if (dst.requiredPermission == "com.samsung.permission.SSENSOR" || dst.requiredPermission == "com.samsung.permission.HRM_EXT") {
+        if (dst.requiredPermission == "com.samsung.permission.SSENSOR" ||
+            dst.requiredPermission == "com.samsung.permission.HRM_EXT") {
             dst.requiredPermission = "";
         }
 
