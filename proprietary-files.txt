@@ -259,8 +259,6 @@ vendor/lib/libos.so
 vendor/lib64/libos.so
 vendor/lib/libthreadutils.so
 vendor/lib64/libthreadutils.so
-vendor/lib/vendor.qti.hardware.camera.postproc@1.0.so
-vendor/lib64/vendor.qti.hardware.camera.postproc@1.0.so
 vendor/lib/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 vendor/lib/libchilog.so
@@ -917,9 +915,6 @@ vendor/bin/init.qcom.sensors.sh
 vendor/bin/sensors.qti
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sns_reg_config
--vendor/bin/hw/android.hardware.sensors@2.1-service.multihal
-vendor/etc/init/android.hardware.sensors@2.1-service-multihal.rc
--vendor/etc/vintf/manifest/android.hardware.sensors@2.1-multihal.xml
 
 # Thermal
 vendor/bin/thermal-engine
