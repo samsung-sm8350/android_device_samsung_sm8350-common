@@ -1,0 +1,7 @@
+cc_library_shared {
+    name: "libhidlbase_shim_sm8350",
+    shared_libs: ["libbase", "libhidlbase"],
+    srcs: ["HidlTransportSupport.cpp"],
+    system_ext_specific: true,
+    vendor_available: true,
+}

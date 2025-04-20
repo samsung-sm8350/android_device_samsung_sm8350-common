@@ -110,11 +110,42 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor
 
 # Camera
-#PRODUCT_PACKAGES += \
-    android.hardware.camera.provider-service.samsung \
-    libgrallocusage.vendor \
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.7.vendor \
+    android.hardware.camera.common@1.0.vendor \
+    android.hardware.camera.device-V1-ndk.vendor \
+    android.hardware.camera.metadata-V1-ndk.vendor \
+    android.hardware.camera.provider-V1-ndk.vendor \
+    android.frameworks.cameraservice.common@2.0 \
+    android.frameworks.cameraservice.service@2.0 \
+    android.frameworks.cameraservice.service@2.1 \
+    android.frameworks.cameraservice.service@2.2 \
+    android.frameworks.cameraservice.device@2.0 \
+    android.frameworks.cameraservice.device@2.1 \
+    android.frameworks.cameraservice.common-V1-ndk \
+    android.frameworks.cameraservice.service-V1-ndk  \
+    android.frameworks.cameraservice.device-V1-ndk \
+    android.hardware.graphics.common-V4-ndk \
+    libcamera_metadata.vendor \
     libutilscallstack.vendor \
-    vendor.qti.hardware.camera.device@1.0.vendor
+    libexif.vendor \
+    libyuv.vendor \
+    libcamera2ndk_vendor \
+    libgrallocusage.vendor \
+    libgui_vendor \
+    libmeminfo.vendor \
+    vendor.qti.hardware.camera.aon@1.3.vendor \
+    vendor.qti.hardware.camera.postproc@1.0.vendor \
+    libdl.vendor \
+    libui_shim.vendor \
+    libhidlbase_shim_sm8350.vendor
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.camera.concurrent.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.concurrent.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
+    frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
 
 # CAS
 PRODUCT_PACKAGES += \
@@ -136,9 +167,9 @@ PRODUCT_PACKAGES += \
 
 # Graphics
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 # A list of dpis to select prebuilt apk, in precedence order.
-PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
+PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Display
 PRODUCT_PACKAGES += \
@@ -206,6 +237,10 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.samsung \
     android.hardware.health-service.samsung-recovery \
     android.hardware.health@2.1.vendor
+
+PRODUCT_PACKAGES += \
+    dlopen \
+    dlopen.vendor
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -357,7 +392,8 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.0-ScopedWakelock.vendor \
-    android.frameworks.sensorservice@1.0.vendor
+    android.frameworks.sensorservice@1.0.vendor \
+    android.hardware.sensors-service.sm8350-multihal
 
 # Thermal
 PRODUCT_PACKAGES += \
