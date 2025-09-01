@@ -261,7 +261,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.samsung-qcom
+    vendor.lineage.livedisplay-service.samsung-qcom
 
 # Media
 PRODUCT_PACKAGES += \
