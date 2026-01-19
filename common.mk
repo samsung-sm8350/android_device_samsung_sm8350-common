@@ -111,22 +111,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.7.vendor \
-    android.hardware.camera.common@1.0.vendor \
-    android.hardware.camera.device-V1-ndk.vendor \
-    android.hardware.camera.metadata-V1-ndk.vendor \
-    android.hardware.camera.provider-V1-ndk.vendor \
-    android.frameworks.cameraservice.common@2.0 \
-    android.frameworks.cameraservice.service@2.0 \
-    android.frameworks.cameraservice.service@2.1 \
-    android.frameworks.cameraservice.service@2.2 \
-    android.frameworks.cameraservice.device@2.0 \
-    android.frameworks.cameraservice.device@2.1 \
-    android.frameworks.cameraservice.common-V1-ndk \
-    android.frameworks.cameraservice.service-V1-ndk  \
-    android.frameworks.cameraservice.device-V1-ndk \
     android.hardware.graphics.common-V4-ndk \
-    libcamera_metadata.vendor \
     libutilscallstack.vendor \
     libexif.vendor \
     libyuv.vendor \
@@ -138,7 +123,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.postproc@1.0.vendor \
     libdl.vendor \
     libui_shim.vendor \
-    libhidlbase_shim_sm8350.vendor
+    libhidlbase_shim_sm8350.vendor \
+    android.hardware.camera.device@3.6.vendor \
+    android.hardware.camera.provider@2.5.vendor \
+    android.hardware.camera.provider@2.6.vendor
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.concurrent.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.concurrent.xml \
@@ -310,10 +298,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
 
-# Perf
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.perf@2.2.vendor
-
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
@@ -360,11 +344,12 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
-    android.hardware.power@1.2.vendor
+    android.hardware.power-service.pixel-libperfmgr \
+    android.hardware.power@1.2.vendor \
+    libqti-perfd-client
 
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+    $(COMMON_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # QCOM
 PRODUCT_PACKAGES += \
@@ -477,6 +462,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH) \
     hardware/google/interfaces \
+    hardware/google/pixel/power-libperfmgr \
+    hardware/qcom-caf/common/libqti-perfd-client \
     hardware/samsung \
     hardware/qcom-caf/sm8350
 

@@ -447,6 +447,24 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" override="true">
+        <name>android.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IThermal</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" override="true">
+        <name>android.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IThermal</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport>hwbinder</transport>
@@ -470,6 +488,15 @@
         <name>vendor.qti.hardware.camera.postproc</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IPostProcService/camerapostprocservice</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.frameworks.cameraservice.service</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>ICameraService</name>
+            <instance>default</instance>
+        </interface>
     </hal>
     <kernel target-level="5"/>
 </manifest>
