@@ -203,6 +203,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fastbootd
 
+# Init
+$(call soong_config_set,libinit,vendor_init_lib,//$(COMMON_PATH):libinit_samsung_sm8350)
+
 # FastCharge
 PRODUCT_PACKAGES += \
     vendor.lineage.fastcharge@1.0-service.samsung
@@ -210,6 +213,11 @@ PRODUCT_PACKAGES += \
 # Lineage Health
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
+
+$(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
+$(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/battery/batt_slate_mode)
+$(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 
 # Fingerprint
 PRODUCT_PACKAGES += \
