@@ -396,7 +396,7 @@ PRODUCT_PACKAGES += \
 
 # Touch features
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.samsung_sm8350
+    vendor.lineage.touch-service.samsung
 
 # Vendor service manager
 PRODUCT_PACKAGES += \
