@@ -1,2 +1,0 @@
-allow vold efs_file:dir { read open ioctl };
-allow vold spu_file:dir { read open ioctl };
