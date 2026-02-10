@@ -24,6 +24,7 @@ namespace_imports = [
     'hardware/qcom-caf/common/libqti-perfd-client',
     'vendor/qcom/opensource/dataservices',
     'hardware/samsung',
+    'hardware/lineage/compat',
 ]
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
@@ -33,15 +34,7 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
- #       'libsndmonitor',
- #       'libexthwplugin',
- #       'libhdmiedid',
- #       'libhfp',
- #       'libadm',
- #       'libspkrprot',
- #       'libdrc',
- #       'libsurround_3mic_proc',
- #       'libhdmipassthru',
+        'sound_trigger.primary.lahaina.so',
     ): lib_fixup_vendor_suffix,
 }
 

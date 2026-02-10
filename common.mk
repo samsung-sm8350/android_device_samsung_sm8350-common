@@ -87,12 +87,10 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libqcompostprocbundle \
     libvolumelistener \
-    sound_trigger.primary.lahaina \
     liba2dpoffload \
     libbatterylistener \
     libcomprcapture \
     libcirrusspkrprot \
-    audio.primary.lahaina \
     libsndmonitor \
     libexthwplugin \
     libhdmiedid \
