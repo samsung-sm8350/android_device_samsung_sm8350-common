@@ -31,7 +31,7 @@
 #/dev/drb                                     u:object_r:drb_device:s0
 #
 ## SPU
-#/spu(/.*)?                                      u:object_r:spu_file:s0
+/spu(/.*)?                                      u:object_r:spu_file:s0
 #
 ## EFS
 #/efs/Battery(/.*)?                           u:object_r:battery_efs_file:s0
